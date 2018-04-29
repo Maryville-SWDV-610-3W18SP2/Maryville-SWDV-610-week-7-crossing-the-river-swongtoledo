@@ -115,13 +115,13 @@ def successors(cur_state):
 			children.append(newState)
 	return children
 
-def MoveSearch():
-	initial_state = State(3,3,'left',0,0)
-	if initial_state.isGoal():
-		return initial_state
+def BFS():
+	initialState = State(3,3,'left',0,0)
+	if initialState.isGoal():
+		return initialState
 	frontier = list()
 	explored = set()
-	frontier.append(initial_state)
+	frontier.append(initialState)
 	while frontier:
 		state = frontier.pop(0)
 		if state.isGoal():
@@ -146,7 +146,7 @@ def printSolution(solution):
 			print ("("+ str(state.cannibalLeft) + "," + str(state.missionaryLeft) + "," + state.boat + "," + str(state.cannibalRight) + "," + str(state.missionaryRight)+ ")")
 
 def main():
-	solution = MoveSearch()
+	solution = BFS()
 	print ("CannibalLeft,  MissionaryLeft,  Boat,   CannibalRight,  MissionaryRight")
 	printSolution(solution)
 
