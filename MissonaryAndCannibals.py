@@ -115,7 +115,7 @@ def successors(cur_state):
 			children.append(newState)
 	return children
 
-def breadth_first_search():
+def MoveSearch():
 	initial_state = State(3,3,'left',0,0)
 	if initial_state.isGoal():
 		return initial_state
@@ -133,7 +133,7 @@ def breadth_first_search():
 				frontier.append(child)
 	return None
 
-def print_solution(solution):
+def printSolution(solution):
 		path = []
 		path.append(solution)
 		parent = solution.parent
@@ -146,9 +146,9 @@ def print_solution(solution):
 			print ("("+ str(state.cannibalLeft) + "," + str(state.missionaryLeft) + "," + state.boat + "," + str(state.cannibalRight) + "," + str(state.missionaryRight)+ ")")
 
 def main():
-	solution = breadth_first_search()
+	solution = MoveSearch()
 	print ("CannibalLeft,  MissionaryLeft,  Boat,   CannibalRight,  MissionaryRight")
-	print_solution(solution)
+	printSolution(solution)
 
 
 main()
